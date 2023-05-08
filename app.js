@@ -1,4 +1,9 @@
 const http=require('http');
+const {readFile}=require('fs');
+const { resolve } = require('path');
+const { result } = require('lodash');
+const { error } = require('console');
+
 const  server =http.createServer((req,res)=>
 { 
     if(req.url==='/')
@@ -41,7 +46,27 @@ server.listen(5000);
  sayHi(names.john);
  sayHi(names.peter);
  sayHi('susan');
- 
+ //prromises
+ const getText=(path)=>
+ {
+   return new Promise((resolve,reject)=>
+    {
+     readFile(path, 'utf8' ,(err,data)=>
+{
+    if(err)
+    {
+        reject(err);
+    }
+    else
+    {
+    resolve(data);
+    }
+})
+
+    })
+ }
+  getText('./content/files.txt').then(result=>console.log(result)).catch((err)=>console.log(err))
  
  //Create server\
- 
+ // Read data from a file
+

@@ -1,0 +1,25 @@
+{
+  "name": "codecampnodejs",
+  "version": "1.0.0",
+  "description": "Code NodeJs and Express.Js practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "start",
+    "start":"node app.js",
+    "Dev":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Treminous/NodeJs.git"
+  },
+  "author": "Milka Wanga Bakhuya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Treminous/NodeJs/issues"
+  },
+  "homepage": "https://github.com/Treminous/NodeJs#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "lodash": "^4.17.21"
+  }
+}

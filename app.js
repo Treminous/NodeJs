@@ -65,7 +65,21 @@ server.listen(5000);
 
     })
  }
-  getText('./content/files.txt').then(result=>console.log(result)).catch((err)=>console.log(err))
+ const start=async()=>
+ { 
+    try{
+    const first=await getText('./content/files.txt')
+    console.log(first);
+    }
+    catch(error)
+    {
+        console.log(error);
+
+    }
+
+ }
+ start();
+  //getText('./content/files.txt').then(result=>console.log(result)).catch((err)=>console.log(err))
  
  //Create server\
  // Read data from a file

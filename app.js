@@ -1,5 +1,5 @@
 const http=require('http');
-const {readFile}=require('fs');
+const {readFile, writeFile}=require('fs');
 const { resolve } = require('path');
 const { result } = require('lodash');
 const { error } = require('console');
@@ -49,14 +49,16 @@ server.listen(5000);
  //prromises
  const util=require('util');
  const readFilePromise=util.promisify(readFile);
-// const writeFilePromise=util.promisify(writeFile);
+ const writeFilePromise=util.promisify(writeFile);
  const start=async()=>
  {
     try{
-const first =await readFilePromise('./content/files.txt', 'utf-8')
-console.log(first);
+const file=await readFilePromise('./content/files.txt', 'utf8')
+const first =await readFilePromise('./content/first.txt', 'utf8')
+console.log(`${file} ${first}`);
+await  writeFilePromise('./content/combine.txt' ,'Hello there ,do you know ;how to ;use promisify?' ,`${file} ${first}`);
     }
-    catch(erro)
+    catch(error)
     {
         console.log(error);
     }

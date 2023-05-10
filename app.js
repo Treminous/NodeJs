@@ -56,7 +56,7 @@ server.listen(5000);
 const file=await readFilePromise('./content/files.txt', 'utf8')
 const first =await readFilePromise('./content/first.txt', 'utf8')
 console.log(`${file} ${first}`);
-await  writeFilePromise('./content/combine.txt' ,'Hello there ,do you know ;how to ;use promisify?' ,`${file} ${first}`);
+await  writeFilePromise('./content/combine.txt' ,`Hello there ,do you know how to use promisify?` ,`${file}${first}`);
     }
     catch(error)
     {

@@ -47,38 +47,49 @@ server.listen(5000);
  sayHi(names.peter);
  sayHi('susan');
  //prromises
- const getText=(path)=>
- {
-   return new Promise((resolve,reject)=>
-    {
-     readFile(path, 'utf8' ,(err,data)=>
-{
-    if(err)
-    {
-        reject(err);
-    }
-    else
-    {
-    resolve(data);
-    }
-})
-
-    })
- }
+ const util=require('util');
+ const readFilePromise=util.promisify(readFile);
+// const writeFilePromise=util.promisify(writeFile);
  const start=async()=>
- { 
-    try{
-    const first=await getText('./content/files.txt')
-    console.log(first);
-    }
-    catch(error)
-    {
-        console.log(error);
-
-    }
-
+ {
+const first =await readFilePromise('./content/files.txt', 'utf-8')
+console.log(first);
  }
- start();
+  start();
+ 
+
+//  const getText=(path)=>
+//  {
+//    return new Promise((resolve,reject)=>
+//     {
+//      readFile(path, 'utf8' ,(err,data)=>
+// {
+//     if(err)
+//     {
+//         reject(err);
+//     }
+//     else
+//     {
+//     resolve(data);
+//     }
+// })
+
+//     })
+//  }
+//  const start=async()=>
+//  { 
+//     try{
+//     const first=await getText('./content/files.txt')
+//     console.log(first);
+//     }
+//     catch(error)
+//     {
+//         console.log(error);
+
+//     }
+
+//  }
+
   //getText('./content/files.txt').then(result=>console.log(result)).catch((err)=>console.log(err))
  
  //Create server\

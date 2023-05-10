@@ -108,12 +108,13 @@ await  writeFilePromise('./content/combine.txt' ,
  const EventEmitter=require('events');
  //create new event
  const customEmmitter=new EventEmitter();
- customEmmitter.on('response',()=>
+ //pass arguments
+ customEmmitter.on('response',(name,id)=>
  {
-    console.log('Data received');
+    console.log(`Data received  by ${name}${id}`);
  }
  );
- customEmmitter.emit('response');
+ customEmmitter.emit('response' ,'John  ' ,34);
 
 
 

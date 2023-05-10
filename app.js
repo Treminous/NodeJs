@@ -53,10 +53,11 @@ server.listen(5000);
  const start=async()=>
  {
     try{
-const file=await readFilePromise('./content/files.txt', 'utf8')
-const first =await readFilePromise('./content/first.txt', 'utf8')
-console.log(`${file} ${first}`);
-await  writeFilePromise('./content/combine.txt' ,`Hello there ,do you know how to use promisify?` ,`${file}${first}`);
+const file=await readFilePromise('./content/files.txt' ,'utf8');
+const first =await readFilePromise('./content/first.txt', 'utf8');
+//console.log(`${file} ${first}`);
+await  writeFilePromise('./content/combine.txt' ,
+`Hello there ,do you know how to use promisify?:${file}${first}`,{flag:'a'});
     }
     catch(error)
     {
@@ -102,4 +103,17 @@ await  writeFilePromise('./content/combine.txt' ,`Hello there ,do you know how t
  
  //Create server\
  // Read data from a file
+ //Events
+ //import event
+ const EventEmitter=require('events');
+ //create new event
+ const customEmmitter=new EventEmitter();
+ customEmmitter.on('response',()=>
+ {
+    console.log('Data received');
+ }
+ );
+ customEmmitter.emit('response');
+
+
 

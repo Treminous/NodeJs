@@ -52,8 +52,14 @@ server.listen(5000);
 // const writeFilePromise=util.promisify(writeFile);
  const start=async()=>
  {
+    try{
 const first =await readFilePromise('./content/files.txt', 'utf-8')
 console.log(first);
+    }
+    catch(erro)
+    {
+        console.log(error);
+    }
  }
   start();
  

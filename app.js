@@ -114,7 +114,7 @@ await  writeFilePromise('./content/combine.txt' ,
     console.log(`Data received  by ${name}${id}`);
  }
  );
- customEmmitter.emit('response' ,'John  ' ,34);
+ customEmmitter.emit('response' ,'John ' ,34);
 
 
 
